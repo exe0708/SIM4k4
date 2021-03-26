@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "S9uwi1Je3vW8jx+UiEPskiIrVWWJ9PpFn76FHERt7yEenThAa1O49v+771TspdHIeZcRw92GpZKJoYtP0rtFHA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\DELL\\source\\repos\\TP1_SIM\\TP1_SIM\\TP1_SIM.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\DELL\\.nuget\\packages\\linqstatistics\\2.3.0\\linqstatistics.2.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}
