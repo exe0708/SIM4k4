@@ -15,7 +15,7 @@ namespace TP_SIM_NUEVO
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormPrincipal());
+            Application.Run(new Generador());
         }
     }
 }

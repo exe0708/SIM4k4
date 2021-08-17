@@ -73,7 +73,7 @@ namespace TP_SIM_NUEVO
             if (usaDesdeHasta)
             {
                 lista_numerosDesdeHasta = new List<Numero>();
-                lista_numerosDesdeHasta = lista_numeros.GetRange(desde - 1, hasta);
+                lista_numerosDesdeHasta = lista_numeros.GetRange(desde, hasta);
                 resto = lista_numerosDesdeHasta.Count - 20;
                 if (hasta > 20)
                 {
