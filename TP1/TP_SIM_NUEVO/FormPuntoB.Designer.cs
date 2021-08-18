@@ -1,7 +1,7 @@
 ﻿
 namespace TP_SIM_NUEVO
 {
-    partial class FormPrincipal
+    partial class FormPuntoB
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -29,27 +29,23 @@ namespace TP_SIM_NUEVO
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dgwDatos = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rd_20 = new System.Windows.Forms.RadioButton();
-            this.rd_15 = new System.Windows.Forms.RadioButton();
+            this.txt_intervalos = new System.Windows.Forms.TextBox();
             this.btnGenerar = new System.Windows.Forms.Button();
-            this.rd_10 = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txt_muestra = new System.Windows.Forms.TextBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnGraficar = new System.Windows.Forms.Button();
             this.grafico = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.btnLimpiar2 = new System.Windows.Forms.Button();
-            this.btnGraficar2 = new System.Windows.Forms.Button();
             this.lblSumChi = new System.Windows.Forms.Label();
-            this.btnLimpiarGrafico = new System.Windows.Forms.Button();
             this.dgwIntervalos = new System.Windows.Forms.DataGridView();
+            this.lbl_chi = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgwDatos)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grafico)).BeginInit();
@@ -61,15 +57,13 @@ namespace TP_SIM_NUEVO
             this.dgwDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwDatos.Location = new System.Drawing.Point(12, 115);
             this.dgwDatos.Name = "dgwDatos";
-            this.dgwDatos.Size = new System.Drawing.Size(329, 254);
+            this.dgwDatos.Size = new System.Drawing.Size(349, 330);
             this.dgwDatos.TabIndex = 0;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.rd_20);
-            this.groupBox1.Controls.Add(this.rd_15);
+            this.groupBox1.Controls.Add(this.txt_intervalos);
             this.groupBox1.Controls.Add(this.btnGenerar);
-            this.groupBox1.Controls.Add(this.rd_10);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txt_muestra);
@@ -80,27 +74,12 @@ namespace TP_SIM_NUEVO
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
             // 
-            // rd_20
+            // txt_intervalos
             // 
-            this.rd_20.AutoSize = true;
-            this.rd_20.Location = new System.Drawing.Point(187, 48);
-            this.rd_20.Name = "rd_20";
-            this.rd_20.Size = new System.Drawing.Size(37, 17);
-            this.rd_20.TabIndex = 13;
-            this.rd_20.TabStop = true;
-            this.rd_20.Text = "20";
-            this.rd_20.UseVisualStyleBackColor = true;
-            // 
-            // rd_15
-            // 
-            this.rd_15.AutoSize = true;
-            this.rd_15.Location = new System.Drawing.Point(150, 48);
-            this.rd_15.Name = "rd_15";
-            this.rd_15.Size = new System.Drawing.Size(37, 17);
-            this.rd_15.TabIndex = 12;
-            this.rd_15.TabStop = true;
-            this.rd_15.Text = "15";
-            this.rd_15.UseVisualStyleBackColor = true;
+            this.txt_intervalos.Location = new System.Drawing.Point(113, 47);
+            this.txt_intervalos.Name = "txt_intervalos";
+            this.txt_intervalos.Size = new System.Drawing.Size(74, 20);
+            this.txt_intervalos.TabIndex = 22;
             // 
             // btnGenerar
             // 
@@ -111,17 +90,6 @@ namespace TP_SIM_NUEVO
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.UseVisualStyleBackColor = true;
             this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
-            // 
-            // rd_10
-            // 
-            this.rd_10.AutoSize = true;
-            this.rd_10.Location = new System.Drawing.Point(113, 48);
-            this.rd_10.Name = "rd_10";
-            this.rd_10.Size = new System.Drawing.Size(37, 17);
-            this.rd_10.TabIndex = 11;
-            this.rd_10.TabStop = true;
-            this.rd_10.Text = "10";
-            this.rd_10.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -152,63 +120,45 @@ namespace TP_SIM_NUEVO
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(12, 776);
+            this.btnLimpiar.Location = new System.Drawing.Point(370, 22);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(111, 23);
+            this.btnLimpiar.Size = new System.Drawing.Size(111, 32);
             this.btnLimpiar.TabIndex = 23;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnGraficar
             // 
-            this.btnGraficar.Location = new System.Drawing.Point(1211, 776);
+            this.btnGraficar.Location = new System.Drawing.Point(370, 60);
             this.btnGraficar.Name = "btnGraficar";
-            this.btnGraficar.Size = new System.Drawing.Size(111, 23);
+            this.btnGraficar.Size = new System.Drawing.Size(111, 30);
             this.btnGraficar.TabIndex = 24;
             this.btnGraficar.Text = "Graficar";
             this.btnGraficar.UseVisualStyleBackColor = true;
+            this.btnGraficar.Click += new System.EventHandler(this.btnGraficar_Click);
             // 
             // grafico
             // 
-            chartArea1.AxisX.Interval = 1D;
-            chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea1.Name = "ChartArea1";
-            this.grafico.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.grafico.Legends.Add(legend1);
-            this.grafico.Location = new System.Drawing.Point(347, 26);
+            chartArea3.AxisX.Interval = 1D;
+            chartArea3.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea3.Name = "ChartArea1";
+            this.grafico.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.grafico.Legends.Add(legend3);
+            this.grafico.Location = new System.Drawing.Point(370, 115);
             this.grafico.Name = "grafico";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Esperada";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Observada";
-            this.grafico.Series.Add(series1);
-            this.grafico.Series.Add(series2);
-            this.grafico.Size = new System.Drawing.Size(905, 614);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Esperada";
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Observada";
+            this.grafico.Series.Add(series5);
+            this.grafico.Series.Add(series6);
+            this.grafico.Size = new System.Drawing.Size(885, 614);
             this.grafico.TabIndex = 26;
             this.grafico.Text = "chart1";
-            // 
-            // btnLimpiar2
-            // 
-            this.btnLimpiar2.Location = new System.Drawing.Point(12, 646);
-            this.btnLimpiar2.Name = "btnLimpiar2";
-            this.btnLimpiar2.Size = new System.Drawing.Size(104, 23);
-            this.btnLimpiar2.TabIndex = 23;
-            this.btnLimpiar2.Text = "Limpiar";
-            this.btnLimpiar2.UseVisualStyleBackColor = true;
-            this.btnLimpiar2.Click += new System.EventHandler(this.btnLimpiar2_Click);
-            // 
-            // btnGraficar2
-            // 
-            this.btnGraficar2.Location = new System.Drawing.Point(237, 646);
-            this.btnGraficar2.Name = "btnGraficar2";
-            this.btnGraficar2.Size = new System.Drawing.Size(104, 23);
-            this.btnGraficar2.TabIndex = 27;
-            this.btnGraficar2.Text = "Graficar";
-            this.btnGraficar2.UseVisualStyleBackColor = true;
-            this.btnGraficar2.Click += new System.EventHandler(this.btnGraficar2_Click);
             // 
             // lblSumChi
             // 
@@ -218,44 +168,44 @@ namespace TP_SIM_NUEVO
             this.lblSumChi.Size = new System.Drawing.Size(0, 13);
             this.lblSumChi.TabIndex = 28;
             // 
-            // btnLimpiarGrafico
-            // 
-            this.btnLimpiarGrafico.Location = new System.Drawing.Point(122, 646);
-            this.btnLimpiarGrafico.Name = "btnLimpiarGrafico";
-            this.btnLimpiarGrafico.Size = new System.Drawing.Size(104, 23);
-            this.btnLimpiarGrafico.TabIndex = 29;
-            this.btnLimpiarGrafico.Text = "Limpiar Grafico";
-            this.btnLimpiarGrafico.UseVisualStyleBackColor = true;
-            this.btnLimpiarGrafico.Click += new System.EventHandler(this.btnLimpiarGrafico_Click);
-            // 
             // dgwIntervalos
             // 
             this.dgwIntervalos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwIntervalos.Location = new System.Drawing.Point(12, 386);
+            this.dgwIntervalos.Location = new System.Drawing.Point(15, 460);
             this.dgwIntervalos.Name = "dgwIntervalos";
-            this.dgwIntervalos.Size = new System.Drawing.Size(329, 254);
+            this.dgwIntervalos.Size = new System.Drawing.Size(349, 310);
             this.dgwIntervalos.TabIndex = 30;
             // 
-            // FormPrincipal
+            // lbl_chi
+            // 
+            this.lbl_chi.AutoSize = true;
+            this.lbl_chi.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_chi.Location = new System.Drawing.Point(515, 22);
+            this.lbl_chi.Name = "lbl_chi";
+            this.lbl_chi.Size = new System.Drawing.Size(25, 31);
+            this.lbl_chi.TabIndex = 31;
+            this.lbl_chi.Text = "*";
+            // 
+            // FormPuntoB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1264, 804);
+            this.Controls.Add(this.lbl_chi);
             this.Controls.Add(this.dgwIntervalos);
-            this.Controls.Add(this.btnLimpiarGrafico);
             this.Controls.Add(this.lblSumChi);
-            this.Controls.Add(this.btnGraficar2);
-            this.Controls.Add(this.btnLimpiar2);
             this.Controls.Add(this.grafico);
             this.Controls.Add(this.btnGraficar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgwDatos);
             this.MaximizeBox = false;
-            this.Name = "FormPrincipal";
+            this.Name = "FormPuntoB";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TP 1 - Grupo N° 4";
+            this.Text = "Form Punto B";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dgwDatos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -275,16 +225,12 @@ namespace TP_SIM_NUEVO
         private System.Windows.Forms.TextBox txt_muestra;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnGraficar;
-        private System.Windows.Forms.RadioButton rd_20;
-        private System.Windows.Forms.RadioButton rd_15;
-        private System.Windows.Forms.RadioButton rd_10;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataVisualization.Charting.Chart grafico;
-        private System.Windows.Forms.Button btnLimpiar2;
-        private System.Windows.Forms.Button btnGraficar2;
         private System.Windows.Forms.Label lblSumChi;
-        private System.Windows.Forms.Button btnLimpiarGrafico;
         private System.Windows.Forms.DataGridView dgwIntervalos;
+        private System.Windows.Forms.TextBox txt_intervalos;
+        private System.Windows.Forms.Label lbl_chi;
     }
 }
 

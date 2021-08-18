@@ -29,7 +29,6 @@ C:\Users\USUARIO\Desktop\SIM4k4\TP_SIM_NUEVO\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO
 C:\Users\USUARIO\Desktop\SIM4k4\TP_SIM_NUEVO\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.exe
 C:\Users\USUARIO\Desktop\SIM4k4\TP_SIM_NUEVO\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.pdb
 C:\Users\USUARIO\Desktop\SIM4k4\TP1\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.csprojAssemblyReference.cache
-C:\Users\USUARIO\Desktop\SIM4k4\TP1\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.FormPrincipal.resources
 C:\Users\USUARIO\Desktop\SIM4k4\TP1\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.Properties.Resources.resources
 C:\Users\USUARIO\Desktop\SIM4k4\TP1\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.csproj.GenerateResource.cache
 C:\Users\USUARIO\Desktop\SIM4k4\TP1\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.csproj.CoreCompileInputs.cache
@@ -39,3 +38,5 @@ C:\Users\USUARIO\Desktop\SIM4k4\TP1\TP_SIM_NUEVO\bin\Debug\TP_SIM_NUEVO.exe.conf
 C:\Users\USUARIO\Desktop\SIM4k4\TP1\TP_SIM_NUEVO\bin\Debug\TP_SIM_NUEVO.exe
 C:\Users\USUARIO\Desktop\SIM4k4\TP1\TP_SIM_NUEVO\bin\Debug\TP_SIM_NUEVO.pdb
 C:\Users\USUARIO\Desktop\SIM4k4\TP1\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.Generador.resources
+C:\Users\USUARIO\Desktop\SIM4k4\TP1\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.FormPuntoB.resources
+C:\Users\USUARIO\Desktop\SIM4k4\TP1\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.FormPuntoC.resources

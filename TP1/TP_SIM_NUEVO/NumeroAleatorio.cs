@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace TP_SIM_NUEVO
 {
-     public class Numero
+    public class NumeroAleatorio
     {
         public int indice { get; set; }
-        public int? semilla { get; set; }
         public double numero_aleatorio { get; set; }
-
     }
 }

@@ -22,7 +22,7 @@ namespace TP_SIM_NUEVO
             usaDesdeHasta = false;
             InitializeComponent();
             btn_anterior.Enabled = false;
-            btn_graficar.Enabled = false;
+            btn_puntob.Enabled = true;
             btn_ultimo.Enabled = false;
             btn_siguiente.Enabled = false;
         }
@@ -44,7 +44,7 @@ namespace TP_SIM_NUEVO
 
                 generarNumerosAleatorios();
                 btn_anterior.Enabled = true;
-                btn_graficar.Enabled = true;
+                btn_puntob.Enabled = true;
                 btn_ultimo.Enabled = true;
                 btn_siguiente.Enabled = true;
             }
@@ -62,7 +62,7 @@ namespace TP_SIM_NUEVO
                 aleatorio.indice = i + 1;
                 var residuo = ((metodo.a * metodo.semilla) + metodo.c) % metodo.m;
                 aleatorio.numero_aleatorio = Math.Round((double)residuo / metodo.m, 4);
-                aleatorio.resto = residuo;
+                aleatorio.semilla = residuo;
                 metodo.semilla = residuo;
                 lista_numeros.Add(aleatorio);
             }
@@ -253,7 +253,7 @@ namespace TP_SIM_NUEVO
             usaDesdeHasta = false;
             dgv_numeros.DataSource = null;
             btn_anterior.Enabled = false;
-            btn_graficar.Enabled = false;
+            btn_puntob.Enabled = false;
             btn_ultimo.Enabled = false;
             btn_siguiente.Enabled = false;
         }
@@ -323,7 +323,14 @@ namespace TP_SIM_NUEVO
 
         private void btn_graficar_Click(object sender, EventArgs e)
         {
-           
+            FormPuntoB form =new FormPuntoB();
+            form.ShowDialog();
+        }
+
+        private void btn_puntoc_Click(object sender, EventArgs e)
+        {
+            FormPuntoC form = new FormPuntoC();
+            form.ShowDialog();
         }
     }
 }

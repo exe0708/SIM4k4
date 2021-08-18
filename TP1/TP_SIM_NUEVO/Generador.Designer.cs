@@ -56,7 +56,8 @@ namespace TP_SIM_NUEVO
             this.btn_ultimo = new System.Windows.Forms.Button();
             this.btn_limpiar = new System.Windows.Forms.Button();
             this.btn_salir = new System.Windows.Forms.Button();
-            this.btn_graficar = new System.Windows.Forms.Button();
+            this.btn_puntob = new System.Windows.Forms.Button();
+            this.btn_puntoc = new System.Windows.Forms.Button();
             this.gb_metodoGenerador.SuspendLayout();
             this.gb_datos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_numeros)).BeginInit();
@@ -322,22 +323,33 @@ namespace TP_SIM_NUEVO
             this.btn_salir.UseVisualStyleBackColor = true;
             this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
-            // btn_graficar
+            // btn_puntob
             // 
-            this.btn_graficar.Location = new System.Drawing.Point(12, 402);
-            this.btn_graficar.Name = "btn_graficar";
-            this.btn_graficar.Size = new System.Drawing.Size(220, 22);
-            this.btn_graficar.TabIndex = 16;
-            this.btn_graficar.Text = "Graficar";
-            this.btn_graficar.UseVisualStyleBackColor = true;
-            this.btn_graficar.Click += new System.EventHandler(this.btn_graficar_Click);
+            this.btn_puntob.Location = new System.Drawing.Point(12, 533);
+            this.btn_puntob.Name = "btn_puntob";
+            this.btn_puntob.Size = new System.Drawing.Size(220, 22);
+            this.btn_puntob.TabIndex = 16;
+            this.btn_puntob.Text = "Punto B";
+            this.btn_puntob.UseVisualStyleBackColor = true;
+            this.btn_puntob.Click += new System.EventHandler(this.btn_graficar_Click);
+            // 
+            // btn_puntoc
+            // 
+            this.btn_puntoc.Location = new System.Drawing.Point(12, 561);
+            this.btn_puntoc.Name = "btn_puntoc";
+            this.btn_puntoc.Size = new System.Drawing.Size(220, 22);
+            this.btn_puntoc.TabIndex = 17;
+            this.btn_puntoc.Text = "Punto C";
+            this.btn_puntoc.UseVisualStyleBackColor = true;
+            this.btn_puntoc.Click += new System.EventHandler(this.btn_puntoc_Click);
             // 
             // Generador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1297, 608);
-            this.Controls.Add(this.btn_graficar);
+            this.ClientSize = new System.Drawing.Size(673, 608);
+            this.Controls.Add(this.btn_puntoc);
+            this.Controls.Add(this.btn_puntob);
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.btn_limpiar);
             this.Controls.Add(this.gb_dgv);
@@ -346,6 +358,7 @@ namespace TP_SIM_NUEVO
             this.Controls.Add(this.gb_datos);
             this.Controls.Add(this.gb_metodoGenerador);
             this.Name = "Generador";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Generador";
             this.gb_metodoGenerador.ResumeLayout(false);
             this.gb_metodoGenerador.PerformLayout();
@@ -387,6 +400,7 @@ namespace TP_SIM_NUEVO
         private System.Windows.Forms.Button btn_limpiar;
         private System.Windows.Forms.Label lbl_pagina;
         private System.Windows.Forms.Button btn_salir;
-        private System.Windows.Forms.Button btn_graficar;
+        private System.Windows.Forms.Button btn_puntob;
+        private System.Windows.Forms.Button btn_puntoc;
     }
 }
