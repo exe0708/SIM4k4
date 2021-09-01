@@ -16,7 +16,6 @@ namespace TP_SIM_NUEVO
         public FormPrincipal()
         {
             InitializeComponent();
-            rd_10.Checked = true;
             rb_uniforme.Checked = true;
             btnGraficar2.Enabled = false;
             txt_lambda.ReadOnly = true;
@@ -265,7 +264,20 @@ namespace TP_SIM_NUEVO
                     break;
                 //POISSON
                 case 4:
-
+                   
+                    lambda =int.Parse(txt_lambda_poisson.Text);
+                    for (int x = 0; x < olNumero.Count; x++)
+                    {
+                   
+                        double poison = 0;
+                        int factorial = Enumerable.Range(1, x).Aggregate(1, (p, item) => p * item);
+                        poison = (Math.Pow(lambda,x) * Math.Exp(-lambda))/ factorial;
+                        poison = Math.Round(poison, 4);
+                        numeroAleatoriocs[x].Variable_Aleatoria = poison;
+                        olNumero[x] = poison;
+                        numeroAleatoriocs[x].NroRandom = Math.Round(numeroAleatoriocs[x].NroRandom, 4);
+                        numeroAleatoriocs[x].NroRandom2 = Math.Round(numeroAleatoriocs[x].NroRandom2, 4);
+                    }
                     break;
 
                 default:
@@ -372,8 +384,9 @@ namespace TP_SIM_NUEVO
                     }
                     break;
                 case 4:
-
                     break;
+                    
+            
             }
 
 
