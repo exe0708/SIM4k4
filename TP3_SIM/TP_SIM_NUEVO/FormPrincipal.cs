@@ -157,9 +157,13 @@ namespace TP_SIM_NUEVO
             {
                 distribucion = 2;
             }
-            else
+            else if(rb_uniforme.Checked)
             {
                 distribucion = 3;
+            }
+            else
+            {
+                distribucion = 4;
             }
             dgwDatos.DataSource = null;
             dgwDatos.Refresh();
@@ -484,7 +488,7 @@ namespace TP_SIM_NUEVO
                 }
             }
             //Uniforme
-            else
+            else if(rb_uniforme.Checked)
             {
                 if (txt_a.Text == "")
                 {
@@ -499,6 +503,15 @@ namespace TP_SIM_NUEVO
                     ret = false;
                 }
 
+            }
+            else
+            {
+                if(txt_lambda_poisson.Text == "")
+                {
+                    MessageBox.Show("Debe ingresar un lambda");
+                    txt_lambda_poisson.Focus();
+                    ret = false;
+                }
             }
             return ret;
 
