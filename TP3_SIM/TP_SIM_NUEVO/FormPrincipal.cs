@@ -115,10 +115,10 @@ namespace TP_SIM_NUEVO
                 }
                 oFrecuencia.FrecEsperado = Frecuencia;
                 oFrecuencia.indice = i + 1;
-                var chiTemp = ((oFrecuencia.FrecEsperado - oFrecuencia.FrecObservada) * (oFrecuencia.FrecEsperado - oFrecuencia.FrecObservada)) / oFrecuencia.FrecEsperado;
-                oFrecuencia.Chi = Math.Round(chiTemp, 4);
-                sumChi = sumChi + oFrecuencia.Chi;
-                oFrecuencia.SumChi = Math.Round(sumChi, 4);
+                //var chiTemp = ((oFrecuencia.FrecEsperado - oFrecuencia.FrecObservada) * (oFrecuencia.FrecEsperado - oFrecuencia.FrecObservada)) / oFrecuencia.FrecEsperado;
+                //oFrecuencia.Chi = Math.Round(chiTemp, 4);
+                //sumChi = sumChi + oFrecuencia.Chi;
+                //oFrecuencia.SumChi = Math.Round(sumChi, 4);
                 olTablaFrec.Add(oFrecuencia);
                 Min = Min + Paso;
             }
@@ -141,6 +141,25 @@ namespace TP_SIM_NUEVO
             lb_chi_cuadrado.Text += "El valor de chi cuadrado es: " + sumChi;
 
         }
+
+        //public void CalcularChi(double FrecEsperado, )
+        //{
+        //    int cant_intervalos = 0;
+        //    double sumChi = 0;
+        //    if (int.Parse(txt_intervalos.Text) > 0)
+        //    {
+        //        cant_intervalos = int.Parse(txt_intervalos.Text);
+        //    }
+        //    for (int i = 0; i < cant_intervalos; i++)
+        //    {                
+        //        var chiTemp = ((FrecEsperado - oFrecuencia.FrecObservada) * (oFrecuencia.FrecEsperado - oFrecuencia.FrecObservada)) / oFrecuencia.FrecEsperado;
+        //        oFrecuencia.Chi = Math.Round(chiTemp, 4);
+        //        sumChi = sumChi + oFrecuencia.Chi;
+        //        oFrecuencia.SumChi = Math.Round(sumChi, 4);
+        //    }
+            
+        //    lb_chi_cuadrado.Text += "El valor de chi cuadrado es: " + sumChi;
+        //}
 
         //Paso 1: Calculo numeros aletorios.
         // ACA ME TENO QUE PARAR CON EL RANDOM 𝑋 = 𝐴 + 𝑅𝑁𝐷(𝐵 − 𝐴)
@@ -267,20 +286,26 @@ namespace TP_SIM_NUEVO
                     }
                     break;
                 //POISSON
-                case 4:
-                   
-                    lambda =int.Parse(txt_lambda_poisson.Text);
-                    for (int x = 0; x < olNumero.Count; x++)
+                case 4:                   
+                    lambda = double.Parse(txt_lambda_poisson.Text);
+                    double poison = 0;
+                    double P = 1;
+                    double X = -1;
+                    double A = Math.Exp(-lambda);
+
+                    for (int i = 0; i < olNumero.Count; i++)
                     {
-                   
-                        double poison = 0;
-                        int factorial = Enumerable.Range(1, x).Aggregate(1, (p, item) => p * item);
-                        poison = (Math.Pow(lambda,x) * Math.Exp(-lambda))/ factorial;
-                        poison = Math.Round(poison, 4);
-                        numeroAleatoriocs[x].Variable_Aleatoria = poison;
-                        olNumero[x] = poison;
-                        numeroAleatoriocs[x].NroRandom = Math.Round(numeroAleatoriocs[x].NroRandom, 4);
-                        numeroAleatoriocs[x].NroRandom2 = Math.Round(numeroAleatoriocs[x].NroRandom2, 4);
+                        do
+                        {
+                            P = P * olNumero[i];
+                            X = X + 1;
+                        } while (P >= A);
+
+                        poison = Math.Round(X, 4);
+                        numeroAleatoriocs[i].Variable_Aleatoria = poison;
+                        olNumero[i] = poison;
+                        numeroAleatoriocs[i].NroRandom = Math.Round(numeroAleatoriocs[i].NroRandom, 4);
+                        numeroAleatoriocs[i].NroRandom2 = Math.Round(numeroAleatoriocs[i].NroRandom2, 4);
                     }
                     break;
 
@@ -388,6 +413,22 @@ namespace TP_SIM_NUEVO
                     }
                     break;
                 case 4:
+                    int cantIntervalos = Int32.Parse(txt_intervalos.Text);
+                    double lambda2 = Double.Parse(txt_lambda_poisson.Text);
+                    double FrecEsperada, funcionDensidadPoison;
+
+                    for (int x = 0; x < cantIntervalos; x++)
+                    {
+                        int factorial = Enumerable.Range(1, x).Aggregate(1, (p, item) => p * item);
+                        funcionDensidadPoison = (Math.Pow(lambda2, x) * Math.Exp(-lambda2)) / factorial;
+                        FrecEsperada = funcionDensidadPoison * Double.Parse(txtMuestra.Text);
+                        olTablaFrec[x].FrecEsperado = FrecEsperada;
+                    }
+
+                    
+                    dgwIntervalos.DataSource = olTablaFrec;
+                    dgwIntervalos.Refresh();
+
                     break;
                     
             

@@ -88,3 +88,17 @@ C:\Agus\Nueva carpeta\SIM4k4\1-cuatrimestre\TP3\TP3_SIM\TP_SIM_NUEVO\obj\Debug\T
 C:\Agus\Nueva carpeta\SIM4k4\1-cuatrimestre\TP3\TP3_SIM\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.csproj.CoreCompileInputs.cache
 C:\Agus\Nueva carpeta\SIM4k4\1-cuatrimestre\TP3\TP3_SIM\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.exe
 C:\Agus\Nueva carpeta\SIM4k4\1-cuatrimestre\TP3\TP3_SIM\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.pdb
+D:\FACULTAD\4to año 2.0 segundo cuatrimestre\SIM\SIM4k4\TP3_SIM\TP_SIM_NUEVO\bin\Debug\TP_SIM_NUEVO.exe.config
+D:\FACULTAD\4to año 2.0 segundo cuatrimestre\SIM\SIM4k4\TP3_SIM\TP_SIM_NUEVO\bin\Debug\TP_SIM_NUEVO.exe
+D:\FACULTAD\4to año 2.0 segundo cuatrimestre\SIM\SIM4k4\TP3_SIM\TP_SIM_NUEVO\bin\Debug\TP_SIM_NUEVO.pdb
+D:\FACULTAD\4to año 2.0 segundo cuatrimestre\SIM\SIM4k4\TP3_SIM\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.csproj.AssemblyReference.cache
+D:\FACULTAD\4to año 2.0 segundo cuatrimestre\SIM\SIM4k4\TP3_SIM\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.FormPrincipal.resources
+D:\FACULTAD\4to año 2.0 segundo cuatrimestre\SIM\SIM4k4\TP3_SIM\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.Properties.Resources.resources
+D:\FACULTAD\4to año 2.0 segundo cuatrimestre\SIM\SIM4k4\TP3_SIM\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.csproj.GenerateResource.cache
+D:\FACULTAD\4to año 2.0 segundo cuatrimestre\SIM\SIM4k4\TP3_SIM\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.csproj.CoreCompileInputs.cache
+D:\FACULTAD\4to año 2.0 segundo cuatrimestre\SIM\SIM4k4\TP3_SIM\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.exe
+D:\FACULTAD\4to año 2.0 segundo cuatrimestre\SIM\SIM4k4\TP3_SIM\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.pdb
+D:\FACULTAD\4to año 2.0 segundo cuatrimestre\SIM\SIM4k4\TP3_SIM\TP_SIM_NUEVO\bin\Debug\TP_SIM_NUEVO.exe.manifest
+D:\FACULTAD\4to año 2.0 segundo cuatrimestre\SIM\SIM4k4\TP3_SIM\TP_SIM_NUEVO\bin\Debug\TP_SIM_NUEVO.application
+D:\FACULTAD\4to año 2.0 segundo cuatrimestre\SIM\SIM4k4\TP3_SIM\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.exe.manifest
+D:\FACULTAD\4to año 2.0 segundo cuatrimestre\SIM\SIM4k4\TP3_SIM\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.application
