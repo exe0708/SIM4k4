@@ -102,3 +102,7 @@ D:\FACULTAD\4to año 2.0 segundo cuatrimestre\SIM\SIM4k4\TP3_SIM\TP_SIM_NUEVO\bi
 D:\FACULTAD\4to año 2.0 segundo cuatrimestre\SIM\SIM4k4\TP3_SIM\TP_SIM_NUEVO\bin\Debug\TP_SIM_NUEVO.application
 D:\FACULTAD\4to año 2.0 segundo cuatrimestre\SIM\SIM4k4\TP3_SIM\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.exe.manifest
 D:\FACULTAD\4to año 2.0 segundo cuatrimestre\SIM\SIM4k4\TP3_SIM\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.application
+C:\Users\USUARIO\Desktop\SIM4k4\TP3_SIM\TP_SIM_NUEVO\bin\Debug\TP_SIM_NUEVO.exe.manifest
+C:\Users\USUARIO\Desktop\SIM4k4\TP3_SIM\TP_SIM_NUEVO\bin\Debug\TP_SIM_NUEVO.application
+C:\Users\USUARIO\Desktop\SIM4k4\TP3_SIM\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.exe.manifest
+C:\Users\USUARIO\Desktop\SIM4k4\TP3_SIM\TP_SIM_NUEVO\obj\Debug\TP_SIM_NUEVO.application
