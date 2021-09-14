@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
+using System.Drawing;
 
 namespace TP_SIM_NUEVO
 {
@@ -68,82 +69,7 @@ namespace TP_SIM_NUEVO
 
         }
 
-        //Paso 2: Calculo los intervalos con la lista devuelta por el metodo del paso 1.
-        public void calcularIntervalos(List<double> lista)
-        {
-            int cant_intervalos = 0;
-            List<Double> olRandom = new List<double>();
-            olRandom = lista.ToList();
-            olRandom.Sort();
-            Int32 CantidadAleatorios = Int32.Parse(txtMuestra.Text);
-            dgwIntervalos.DataSource = null;
-            dgwIntervalos.Refresh();
-            dgwIntervalos.Rows.Clear();
-            olTablaFrec.Clear();
-            if (int.Parse(txt_intervalos.Text) > 0)
-            {
-                cant_intervalos = int.Parse(txt_intervalos.Text);
-            }
-            else
-            {
-                MessageBox.Show("Debe seleccionar un intervalo");
-            }
-
-            Double Min = Math.Round(olRandom.Min(), 4);
-            Double Max = Math.Round(olRandom.Max(), 4);
-            Double Paso = Math.Round((Max - Min) / cant_intervalos, 4);
-            Double Frecuencia = CantidadAleatorios / cant_intervalos;
-            Double sumChi = 0;
-
-
-            for (int i = 0; i < cant_intervalos; i++)
-            {
-                Frecuencia oFrecuencia = new Frecuencia();
-                oFrecuencia.LimInferior = Math.Round(Min, 4);
-                Double Maximo = Math.Round(Min + Paso, 4);
-                oFrecuencia.LimSuperior = Maximo;
-                if (i == cant_intervalos - 1)
-                {
-                    oFrecuencia.FrecObservada = olRandom.Count(p => (p >= oFrecuencia.LimInferior)
-                    && (p <= oFrecuencia.LimSuperior + 0.1));
-
-                }
-                else
-                {
-                    oFrecuencia.FrecObservada = olRandom.Count(p => (p >= oFrecuencia.LimInferior)
-                    && (p < oFrecuencia.LimSuperior));
-                }
-                oFrecuencia.FrecEsperado = Frecuencia;
-                oFrecuencia.indice = i + 1;
-                var chiTemp = ((oFrecuencia.FrecEsperado - oFrecuencia.FrecObservada) * (oFrecuencia.FrecEsperado - oFrecuencia.FrecObservada)) / oFrecuencia.FrecEsperado;
-                oFrecuencia.Chi = Math.Round(chiTemp, 4);
-                sumChi = sumChi + oFrecuencia.Chi;
-                oFrecuencia.SumChi = Math.Round(sumChi, 4);
-                olTablaFrec.Add(oFrecuencia);
-                Min = Min + Paso;
-            }
-
-            if (flag)
-            {
-                flag = false;
-            }
-            else
-            {
-
-                dgwIntervalos.DataSource = null;
-                dgwIntervalos.Rows.Clear();
-            }
-
-            dgwIntervalos.DataSource = olTablaFrec;
-            olTablaFrecGrafico = olTablaFrec;
-            dgwIntervalos.Refresh();
-            btnGraficar2.Enabled = true;
-            lb_chi_cuadrado.Text += "El valor de chi cuadrado es: " + sumChi;
-
-        }
-
         //Paso 1: Calculo numeros aletorios.
-        // ACA ME TENO QUE PARAR CON EL RANDOM 𝑋 = 𝐴 + 𝑅𝑁𝐷(𝐵 − 𝐴)
         public List<double> calcularNumerosAleatoriosLenguaje()
         {
             double lambda, media, desv_estandar;
@@ -157,7 +83,7 @@ namespace TP_SIM_NUEVO
             {
                 distribucion = 2;
             }
-            else if(rb_uniforme.Checked)
+            else if (rb_uniforme.Checked)
             {
                 distribucion = 3;
             }
@@ -266,16 +192,15 @@ namespace TP_SIM_NUEVO
 
                     }
                     break;
-                //POISSON
+                //POISSON =(EXP(-Lambda)*(Lambda^E4))/(FACT(E4))
                 case 4:
-                   
-                    lambda =int.Parse(txt_lambda_poisson.Text);
+
+                    lambda = int.Parse(txt_lambda_poisson.Text);
                     for (int x = 0; x < olNumero.Count; x++)
                     {
-                   
+
                         double poison = 0;
-                        int factorial = Enumerable.Range(1, x).Aggregate(1, (p, item) => p * item);
-                        poison = (Math.Pow(lambda,x) * Math.Exp(-lambda))/ factorial;
+                        
                         poison = Math.Round(poison, 4);
                         numeroAleatoriocs[x].Variable_Aleatoria = poison;
                         olNumero[x] = poison;
@@ -291,6 +216,80 @@ namespace TP_SIM_NUEVO
             dgwDatos.DataSource = numeroAleatoriocs;
             dgwDatos.Refresh();
             return olNumero;
+
+        }
+
+        //Paso 2: Calculo los intervalos con la lista devuelta por el metodo del paso 1.
+        public void calcularIntervalos(List<double> lista)
+        {
+            int cant_intervalos = 0;
+            List<Double> olRandom = new List<double>();
+            olRandom = lista.ToList();
+            olRandom.Sort();
+            Int32 CantidadAleatorios = Int32.Parse(txtMuestra.Text);
+            dgwIntervalos.DataSource = null;
+            dgwIntervalos.Refresh();
+            dgwIntervalos.Rows.Clear();
+            olTablaFrec.Clear();
+            if (int.Parse(txt_intervalos.Text) > 0)
+            {
+                cant_intervalos = int.Parse(txt_intervalos.Text);
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un intervalo");
+            }
+
+            Double Min = Math.Round(olRandom.Min(), 4);
+            Double Max = Math.Round(olRandom.Max(), 4);
+            Double Paso = Math.Round((Max - Min) / cant_intervalos, 4);
+            Double Frecuencia = CantidadAleatorios / cant_intervalos;
+            Double sumChi = 0;
+
+
+            for (int i = 0; i < cant_intervalos; i++)
+            {
+                Frecuencia oFrecuencia = new Frecuencia();
+                oFrecuencia.LimInferior = Math.Round(Min, 4);
+                Double Maximo = Math.Round(Min + Paso, 4);
+                oFrecuencia.LimSuperior = Maximo;
+                if (i == cant_intervalos - 1)
+                {
+                    oFrecuencia.FrecObservada = olRandom.Count(p => (p >= oFrecuencia.LimInferior)
+                    && (p <= oFrecuencia.LimSuperior + 0.1));
+
+                }
+                else
+                {
+                    oFrecuencia.FrecObservada = olRandom.Count(p => (p >= oFrecuencia.LimInferior)
+                    && (p < oFrecuencia.LimSuperior));
+                }
+                oFrecuencia.FrecEsperado = Frecuencia;
+                oFrecuencia.indice = i + 1;
+                var chiTemp = ((oFrecuencia.FrecEsperado - oFrecuencia.FrecObservada) * (oFrecuencia.FrecEsperado - oFrecuencia.FrecObservada)) / oFrecuencia.FrecEsperado;
+                oFrecuencia.Chi = Math.Round(chiTemp, 4);
+                sumChi = sumChi + oFrecuencia.Chi;
+                oFrecuencia.SumChi = Math.Round(sumChi, 4);
+                olTablaFrec.Add(oFrecuencia);
+                Min = Min + Paso;
+            }
+
+            if (flag)
+            {
+                flag = false;
+            }
+            else
+            {
+
+                dgwIntervalos.DataSource = null;
+                dgwIntervalos.Rows.Clear();
+            }
+
+            dgwIntervalos.DataSource = olTablaFrec;
+            olTablaFrecGrafico = olTablaFrec;
+            dgwIntervalos.Refresh();
+            btnGraficar2.Enabled = true;
+            lb_chi_cuadrado.Text += "El valor de chi cuadrado es: " + sumChi;
 
         }
 
@@ -388,16 +387,34 @@ namespace TP_SIM_NUEVO
                     }
                     break;
                 case 4:
+
+                    lambda = int.Parse(txt_lambda_poisson.Text);
+                    for (int j = 0; j < olTablaFrec.Count; j++)
+                    {
+                        double poison;
+
+                        int factorial = 1;
+                        for (int k = 1; k <= olNumero[j]; k++)
+                        {
+                            factorial = factorial * j;
+                        }
+                        //int factorial = Enumerable.Range(1, x).Aggregate(1, (p, item) => p * item);
+                        poison = Math.Exp(-lambda) * Math.Pow(lambda, olNumero[j]) / factorial;
+                        frecEsperada = poison * N;
+                        frecEsperada = Math.Round(frecEsperada, 4);
+                        olTablaFrec[j].FrecEsperado = frecEsperada;
+                        dgwIntervalos.DataSource = olTablaFrec;
+                        dgwIntervalos.Refresh();
+
+                    }
                     break;
-                    
-            
             }
 
 
         }
 
 
-
+        // Grafico
         private void btnGraficar2_Click(object sender, EventArgs e)
         {
             //Inicializar la grilla.
@@ -437,9 +454,13 @@ namespace TP_SIM_NUEVO
         private void btnLimpiar2_Click(object sender, EventArgs e)
         {
             //Limpio los valores de la tabla.
+
             btnGraficar2.Enabled = false;
+            SizeF prueba = new SizeF();
+            grafico.Scale(prueba);
             dgwDatos.DataSource = null;
             dgwIntervalos.DataSource = null;
+
             txtMuestra.Text = "";
 
         }
@@ -447,10 +468,10 @@ namespace TP_SIM_NUEVO
         private void btnLimpiarGrafico_Click(object sender, EventArgs e)
         {
             //Limpio el grafico.
-            grafico.DataSource = null;
-            grafico.Legends.Clear();
-            grafico.Series.Clear();
-            grafico.Titles.Clear();
+            SizeF prueba = new SizeF();
+            grafico.Scale(prueba);
+            dgwDatos.DataSource = null;
+            dgwIntervalos.DataSource = null;
 
         }
         public Boolean validacion()
