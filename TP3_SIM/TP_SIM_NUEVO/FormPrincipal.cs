@@ -192,20 +192,27 @@ namespace TP_SIM_NUEVO
 
                     }
                     break;
-                //POISSON =(EXP(-Lambda)*(Lambda^E4))/(FACT(E4))
-                case 4:
+                //POISSON
+                case 4:                   
+                    lambda = double.Parse(txt_lambda_poisson.Text);
+                    double poison = 0;
+                    double P = 1;
+                    double X = -1;
+                    double A = Math.Exp(-lambda);
 
-                    lambda = int.Parse(txt_lambda_poisson.Text);
-                    for (int x = 0; x < olNumero.Count; x++)
+                    for (int i = 0; i < olNumero.Count; i++)
                     {
+                        do
+                        {
+                            P = P * olNumero[i];
+                            X = X + 1;
+                        } while (P >= A);
 
-                        double poison = 0;
-                        
-                        poison = Math.Round(poison, 4);
-                        numeroAleatoriocs[x].Variable_Aleatoria = poison;
-                        olNumero[x] = poison;
-                        numeroAleatoriocs[x].NroRandom = Math.Round(numeroAleatoriocs[x].NroRandom, 4);
-                        numeroAleatoriocs[x].NroRandom2 = Math.Round(numeroAleatoriocs[x].NroRandom2, 4);
+                        poison = Math.Round(X, 4);
+                        numeroAleatoriocs[i].Variable_Aleatoria = poison;
+                        olNumero[i] = poison;
+                        numeroAleatoriocs[i].NroRandom = Math.Round(numeroAleatoriocs[i].NroRandom, 4);
+                        numeroAleatoriocs[i].NroRandom2 = Math.Round(numeroAleatoriocs[i].NroRandom2, 4);
                     }
                     break;
 
