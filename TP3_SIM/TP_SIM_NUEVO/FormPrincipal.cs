@@ -83,7 +83,7 @@ namespace TP_SIM_NUEVO
             {
                 distribucion = 2;
             }
-            else if (rb_uniforme.Checked)
+            else if (rb_normal.Checked)
             {
                 distribucion = 3;
             }
@@ -395,7 +395,7 @@ namespace TP_SIM_NUEVO
                     break;
                 case 4:
 
-                    lambda = int.Parse(txt_lambda_poisson.Text);
+                    lambda = double.Parse(txt_lambda_poisson.Text);
                     for (int j = 0; j < olTablaFrec.Count; j++)
                     {
                         double poison;
