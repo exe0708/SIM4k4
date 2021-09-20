@@ -195,47 +195,36 @@ namespace TP_SIM_NUEVO
                 //POISSON
                 case 4:
                     lambda = double.Parse(txt_lambda_poisson.Text);
-                    double x = 0;
+                    int x = 0;
                     double h = 0;
-
+                    List<int> lista = new List<int>();
                     for (int i = 0; i < olNumero.Count; i++)
                     {
-                        
-                        //bool bandera = true;
                         do
                         {
-                            /*if (bandera)
-                            {*/
-                                Random random = new Random();
-                                var argumento = 1 - random.NextDouble();
-                                var exponencial = ((-1) / lambda) * Math.Log(argumento);
-                                h += exponencial;
-                            x++;
-                            // bandera = false;
 
-                            //}
-                            /*else
+                            Random random = new Random();
+                            var numerorandom = random.NextDouble();
+                            var argumento = 1 - numerorandom;
+                            var exponencial = -(1 / lambda) * Math.Log(argumento);
+                            h = h + exponencial;
+                            x = x + 1;
+                            if(h>1)
                             {
-                                x++;
-                                Random random = new Random();
-                                var argumento = 1 - random.NextDouble();
-                                var exponencial = ((-1) / lambda) * Math.Log(argumento);
-                                h += exponencial;
-                                
-                            }*/
-
-                        
-                        } 
+                                lista.Add(x);
+                                break; 
+                            }
+                        }
                         while (h <= 1);
 
-                        var poison = Math.Round(x, 4);
-                        numeroAleatoriocs[i].Variable_Aleatoria = poison;
-                        olNumero[i] = poison;
+                        olNumero[i] = x;    
+                        numeroAleatoriocs[i].Variable_Aleatoria = x;
                         numeroAleatoriocs[i].NroRandom = Math.Round(numeroAleatoriocs[i].NroRandom, 4);
                         numeroAleatoriocs[i].NroRandom2 = Math.Round(numeroAleatoriocs[i].NroRandom2, 4);
                         h = 0;
                         x = 0;
                     }
+
                     break;
 
                 default:
@@ -417,25 +406,25 @@ namespace TP_SIM_NUEVO
                     break;
                 case 4:
 
-                  /*  lambda = double.Parse(txt_lambda_poisson.Text);
-                    for (int j = 0; j < olTablaFrec.Count; j++)
-                    {
-                        double poison;
+                    /*  lambda = double.Parse(txt_lambda_poisson.Text);
+                      for (int j = 0; j < olTablaFrec.Count; j++)
+                      {
+                          double poison;
 
-                        int factorial = 1;
-                        for (int k = 1; k <= olNumero[j]; k++)
-                        {
-                            factorial = factorial * j;
-                        }
-                        //int factorial = Enumerable.Range(1, x).Aggregate(1, (p, item) => p * item);
-                        poison = Math.Exp(-lambda) * Math.Pow(lambda, olNumero[j]) / factorial;
-                        frecEsperada = poison * N;
-                        frecEsperada = Math.Round(frecEsperada, 4);
-                        olTablaFrec[j].FrecEsperado = frecEsperada;
-                        dgwIntervalos.DataSource = olTablaFrec;
-                        dgwIntervalos.Refresh();
+                          int factorial = 1;
+                          for (int k = 1; k <= olNumero[j]; k++)
+                          {
+                              factorial = factorial * j;
+                          }
+                          //int factorial = Enumerable.Range(1, x).Aggregate(1, (p, item) => p * item);
+                          poison = Math.Exp(-lambda) * Math.Pow(lambda, olNumero[j]) / factorial;
+                          frecEsperada = poison * N;
+                          frecEsperada = Math.Round(frecEsperada, 4);
+                          olTablaFrec[j].FrecEsperado = frecEsperada;
+                          dgwIntervalos.DataSource = olTablaFrec;
+                          dgwIntervalos.Refresh();
 
-                    }*/
+                      }*/
                     break;
             }
 
