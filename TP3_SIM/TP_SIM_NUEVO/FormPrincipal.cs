@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Linq;
 using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace TP_SIM_NUEVO
 {
@@ -35,7 +35,7 @@ namespace TP_SIM_NUEVO
                 gb_poisson.Visible = false;
                 txt_desv_est.Text = "";
                 txt_media_normal.Text = "";
-            
+
             }
             //EXPONCIAL
             else if (rb_exponencial.Checked)
@@ -48,7 +48,7 @@ namespace TP_SIM_NUEVO
                 txt_media_exp.Text = "";
             }
             //UNIFORME
-            else if(rb_uniforme.Checked)
+            else if (rb_uniforme.Checked)
             {
                 gb_uniforme.Visible = true;
                 gb_exponencial.Visible = false;
@@ -193,26 +193,48 @@ namespace TP_SIM_NUEVO
                     }
                     break;
                 //POISSON
-                case 4:                   
+                case 4:
                     lambda = double.Parse(txt_lambda_poisson.Text);
-                    double poison = 0;
-                    double P = 1;
-                    double X = -1;
-                    double A = Math.Exp(-lambda);
+                    double x = 0;
+                    double h = 0;
 
                     for (int i = 0; i < olNumero.Count; i++)
                     {
+                        
+                        //bool bandera = true;
                         do
                         {
-                            P = P * olNumero[i];
-                            X = X + 1;
-                        } while (P >= A);
+                            /*if (bandera)
+                            {*/
+                                Random random = new Random();
+                                var argumento = 1 - random.NextDouble();
+                                var exponencial = ((-1) / lambda) * Math.Log(argumento);
+                                h += exponencial;
+                            x++;
+                            // bandera = false;
 
-                        poison = Math.Round(X, 4);
+                            //}
+                            /*else
+                            {
+                                x++;
+                                Random random = new Random();
+                                var argumento = 1 - random.NextDouble();
+                                var exponencial = ((-1) / lambda) * Math.Log(argumento);
+                                h += exponencial;
+                                
+                            }*/
+
+                        
+                        } 
+                        while (h <= 1);
+
+                        var poison = Math.Round(x, 4);
                         numeroAleatoriocs[i].Variable_Aleatoria = poison;
                         olNumero[i] = poison;
                         numeroAleatoriocs[i].NroRandom = Math.Round(numeroAleatoriocs[i].NroRandom, 4);
                         numeroAleatoriocs[i].NroRandom2 = Math.Round(numeroAleatoriocs[i].NroRandom2, 4);
+                        h = 0;
+                        x = 0;
                     }
                     break;
 
@@ -303,7 +325,7 @@ namespace TP_SIM_NUEVO
         //Paso 3: Calculo frecuencias esperadas
         public void calcularFrecuenciasEsperadas()
         {
-            
+
             double distribucion = 0;
             double promedio, frecEsperada;
             double limInf, limSup;
@@ -337,7 +359,7 @@ namespace TP_SIM_NUEVO
                         limInf = olTablaFrec[j].LimInferior;
                         limSup = olTablaFrec[j].LimSuperior;
                         double marca = double.Parse(txt_b.Text) - double.Parse(txt_a.Text);
-                        promedio = ((limSup - double.Parse(txt_a.Text)) / marca) - ((limInf - double.Parse(txt_a.Text)) 
+                        promedio = ((limSup - double.Parse(txt_a.Text)) / marca) - ((limInf - double.Parse(txt_a.Text))
                             / marca);
 
                         promedio = Math.Round(promedio, 4);
@@ -381,7 +403,7 @@ namespace TP_SIM_NUEVO
                         double ayu = (marc - media) / desvEst;
                         double inter = (Math.Pow(ayu, 2)) * (-0.5);
                         argumento = Math.Exp(inter);
-                        double previa = argumento / ((Math.Sqrt(2 * Math.PI)) * desvEst);                   
+                        double previa = argumento / ((Math.Sqrt(2 * Math.PI)) * desvEst);
                         //esta multiplicacion se hace para conocer la probabilidad de cada intervalo
                         //disminuis el margen de error
                         promedio = previa * (limSup - limInf);
@@ -395,7 +417,7 @@ namespace TP_SIM_NUEVO
                     break;
                 case 4:
 
-                    lambda = double.Parse(txt_lambda_poisson.Text);
+                  /*  lambda = double.Parse(txt_lambda_poisson.Text);
                     for (int j = 0; j < olTablaFrec.Count; j++)
                     {
                         double poison;
@@ -413,7 +435,7 @@ namespace TP_SIM_NUEVO
                         dgwIntervalos.DataSource = olTablaFrec;
                         dgwIntervalos.Refresh();
 
-                    }
+                    }*/
                     break;
             }
 
@@ -428,7 +450,7 @@ namespace TP_SIM_NUEVO
             grafico.DataSource = null;
             grafico.Series.Clear();
             grafico.Titles.Clear();
-            
+
             if (!(dgwDatos.DataSource == null && dgwIntervalos.DataSource == null))
             {
                 //Argego columnas y le seteo los nombres.
@@ -457,7 +479,7 @@ namespace TP_SIM_NUEVO
             }
 
         }
-        
+
         private void btnLimpiar2_Click(object sender, EventArgs e)
         {
             //Limpio los valores de la tabla.
@@ -505,7 +527,7 @@ namespace TP_SIM_NUEVO
             //Validacion para Exponencial
             else if (rb_exponencial.Checked)
             {
-                if (txt_media_exp.Text != "") 
+                if (txt_media_exp.Text != "")
                 {
                     ret = true;
                 }
@@ -516,7 +538,7 @@ namespace TP_SIM_NUEVO
                 }
             }
             //Uniforme
-            else if(rb_uniforme.Checked)
+            else if (rb_uniforme.Checked)
             {
                 if (txt_a.Text == "")
                 {
@@ -534,7 +556,7 @@ namespace TP_SIM_NUEVO
             }
             else
             {
-                if(txt_lambda_poisson.Text == "")
+                if (txt_lambda_poisson.Text == "")
                 {
                     MessageBox.Show("Debe ingresar un lambda");
                     txt_lambda_poisson.Focus();
@@ -557,7 +579,7 @@ namespace TP_SIM_NUEVO
                 {
                     MessageBox.Show("Debe Ingresar una Muestra");
                     txtMuestra.Focus();
-                    
+
                 }
                 else
                 {
@@ -607,7 +629,7 @@ namespace TP_SIM_NUEVO
 
         private void txt_media_exp_TextChanged(object sender, EventArgs e)
         {
-            if (txt_media_exp.Text != "") 
+            if (txt_media_exp.Text != "")
             {
                 var media = double.Parse(txt_media_exp.Text);
                 double lambda = 1 / media;
@@ -618,7 +640,7 @@ namespace TP_SIM_NUEVO
             {
                 txt_lambda.Text = "";
             }
-            
+
         }
     }
 }
