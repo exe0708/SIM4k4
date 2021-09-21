@@ -205,6 +205,7 @@ namespace TP_SIM_NUEVO
                     {
                         olNumero[i] = calcularPoison2(n,p);
                         //olNumero[i] = calcularPoison(x, h);
+                        //System.Threading.Thread.Sleep(Interval);
                         numeroAleatoriocs[i].Variable_Aleatoria = olNumero[i];
                         numeroAleatoriocs[i].NroRandom = Math.Round(numeroAleatoriocs[i].NroRandom, 4);
                         numeroAleatoriocs[i].NroRandom2 = Math.Round(numeroAleatoriocs[i].NroRandom2, 4);
